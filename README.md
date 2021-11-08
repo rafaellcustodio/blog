@@ -46,6 +46,17 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
                ->index.html.eex(/lib/blog_web/templates/page)
   * `npm install` inside the `assets` directory
     
+## Git
+
+  * echo "# blog" >> README.md
+  * git init
+  * git add README.md
+  * git commit -m "first commit"
+  * git branch -M main
+  * git remote add origin https://github.com/rafaellcustodio/blog.git 
+  * git push -u origin main
+
+  * git flow init
 
 ## Arquivos de configuração
 
