@@ -129,4 +129,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 
   * mix deps.get
   * mix coveralls.html
+  * Cole no intervalo que deseja ignorar
+    # coveralls-ignore-start
+    # coveralls-ignore-stop
 
