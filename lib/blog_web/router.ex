@@ -33,10 +33,11 @@ defmodule BlogWeb.Router do
   # as long as you are also using SSL (which you should anyway).
   if Mix.env() in [:dev, :test] do
     import Phoenix.LiveDashboard.Router
-
+# coveralls-ignore-start
     scope "/" do
       pipe_through :browser
       live_dashboard "/dashboard", metrics: BlogWeb.Telemetry
     end
+  # coveralls-ignore-stop
   end
 end
