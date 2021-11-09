@@ -14,7 +14,7 @@ defmodule BlogWeb.ChannelCase do
   by setting `use BlogWeb.ChannelCase, async: true`, although
   this option is not recommended for other databases.
   """
-
+  alias Ecto.Adapters.SQL.Sandbox
   use ExUnit.CaseTemplate
 
   using do
@@ -29,10 +29,10 @@ defmodule BlogWeb.ChannelCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Blog.Repo)
+    :ok = Sandbox.checkout(Blog.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Blog.Repo, {:shared, self()})
+      Sandbox.mode(Blog.Repo, {:shared, self()})
     end
 
     :ok

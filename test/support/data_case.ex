@@ -13,7 +13,7 @@ defmodule Blog.DataCase do
   by setting `use Blog.DataCase, async: true`, although
   this option is not recommended for other databases.
   """
-
+  alias Ecto.Adapters.SQL.Sandbox
   use ExUnit.CaseTemplate
 
   using do
@@ -28,10 +28,10 @@ defmodule Blog.DataCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Blog.Repo)
+    :ok = Sandbox.checkout(Blog.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Blog.Repo, {:shared, self()})
+      Sandbox.mode(Blog.Repo, {:shared, self()})
     end
 
     :ok
