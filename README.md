@@ -57,7 +57,76 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * git push -u origin main
 
   * git flow init
+  * git push --set-upstream origin develop
+  * git flow feature start blog-flow
+  * git push --set-upstream origin feature/blog-flow  
+  * git push               
 
 ## Arquivos de configuração
 
-  * /config/dev.exs - hostname: "pg"
+  * /config/dev.exs -  {:credo, "~> 1.4", only: [:dev, :test], runtime: false}
+  * mix deps.get
+  * mix credo gen.config
+  * mix credo --strict(altere as sugestões do credo)
+  * git push
+  * /config/dev.exs - {:sobelow, "~> 0.8", only: :dev}
+  * /config/dev.exs - {:excoveralls, "~> 0.10", only: :test},
+
+  coveralls.json
+{
+    "skip_files": [
+      "lib/blog/application.ex",
+      "lib/blog/release.ex",
+      "lib/blog_web.ex",
+      "lib/blog_web/views/error_helpers.ex",
+      "test/support/channel_case.ex",
+      "test/support/data_case.ex", 
+      "lib/blog_web/telemetry.ex"
+    ],
+    "coverage_options": {
+      "treat_no_relevant_lines_as_covered": true,
+      "output_dir": "cover/",
+      "minimum_coverage": 50
+    }
+  }
+
+
+.sobelow-conf​
+
+[
+  verbose: false,
+  private: false,
+  skip: false,
+  router: "",
+  exit: "false",
+  format: "txt",
+  out: "",
+  threshold: "high",
+  ignore: ["Config.CSP", "Config.HTTPS"],
+  ignore_files: []
+]
+
+  * mix.exs:
+    def project do
+    [
+      app: :blog,
+      version: "0.1.0",
+      elixir: "~> 1.7",
+      elixirc_paths: elixirc_paths(Mix.env()),
+      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+      start_permanent: Mix.env() == :prod,
+      aliases: aliases(),
+      deps: deps(),
+      app: :excoveralls,
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+      coveralls: :test,
+      "coveralls.detail": :test,
+      "coveralls.post": :test,
+      "coveralls.html": :test]
+    ]
+  end
+
+  * mix deps.get
+  * mix coveralls.html
+
