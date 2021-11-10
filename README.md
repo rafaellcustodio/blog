@@ -1,4 +1,28 @@
-# Blog
+## Elixir / Erlang
+
+  * dnf install elixir erlang
+
+## Node
+
+  * sudo dnf module enable nodejs:16
+  * sudo dnf install nodejs
+
+
+## Visual Studio
+
+  * sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+  * sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+  * sudo dnf check-update
+  * sudo dnf install code
+
+## Git
+
+  * sudo dnf install git-all
+  * git branch -a
+  * git checkout origin/feature/blog-flow
+  * git checkout blog-flow
+
+## Blog
 
 To start your Phoenix server:
 
@@ -130,6 +154,6 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * mix deps.get
   * mix coveralls.html
   * Cole no intervalo que deseja ignorar
-    # coveralls-ignore-start
-    # coveralls-ignore-stop
+    * coveralls-ignore-start
+    * coveralls-ignore-stop
 
