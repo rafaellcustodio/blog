@@ -25,17 +25,14 @@
   * sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
   * sudo dnf install gh
   * gh auth login
-
-rafaellcustodio@toolbox blog]$ gh auth login
-? What account do you want to log into? GitHub.com
-? What is your preferred protocol for Git operations? HTTPS
-? Authenticate Git with your GitHub credentials? Yes
-? How would you like to authenticate GitHub CLI? Login with a web browser
-
-! First copy your one-time code: 797A-E8AE
-- Press Enter to open github.com in your browser... 
-! Failed opening a web browser at https://github.com/login/device
-
+    * rafaellcustodio@toolbox blog]$ gh auth login
+    * What account do you want to log into? GitHub.com
+    * What is your preferred protocol for Git operations? HTTPS
+    * Authenticate Git with your GitHub credentials? Yes
+    * How would you like to authenticate GitHub CLI? Login with a web browser
+    * First copy your one-time code: 797A-E8AE
+    * Press Enter to open github.com in your browser... 
+    * Failed opening a web browser at https://github.com/login/device
   * git push origin HEAD:feature/blog-flow
 
 ## Blog
