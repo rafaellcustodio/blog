@@ -39,8 +39,6 @@
 * git branch -a
 * git checkout origin/feature/blog-flow
 * git checkout blog-flow
-* sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
-* sudo dnf install gh
 * gh auth login
   * rafaellcustodio@toolbox blog]$ gh auth login
   * What account do you want to log into? GitHub.com
@@ -50,7 +48,7 @@
   * First copy your one-time code: 797A-E8AE
   * Press Enter to open github.com in your browser... 
   * Failed opening a web browser at https://github.com/login/device
-* git push origin HEAD:feature/blog-flo
+* git push origin HEAD:feature/blog-flow
 
 ## Blog
 
