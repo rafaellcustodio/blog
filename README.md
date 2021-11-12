@@ -1,39 +1,53 @@
 ## Elixir / Erlang
 
-  * dnf install elixir erlang
+  * wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb && sudo dpkg -i erlang-solutions_2.0_all.deb
+  * sudo apt-get update
+  * sudo apt-get install esl-erlang
+  * sudo apt-get install elixir
+
 
 ## Node
 
-  * sudo dnf module enable nodejs:16
-  * sudo dnf install nodejs
+  * sudo apt update
+  * sudo apt install nodejs
+  * sudo apt install npm
 
+## Phoenix Framework
 
-## Visual Studio
-
-  * sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-  * sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-  * sudo dnf check-update
-  * sudo dnf install code
+  * mix local.hex
+  * mix archive.install hex phx_new
 
 ## Git
 
-  * sudo dnf install git-all
-  * git branch -a
-  * git checkout origin/feature/blog-flow
-  * git checkout blog-flow
+  * sudo apt-get install git-all
+    * git config --global user.email "you@example.com"
+    * git config --global user.name "Your Name"
+  * sudo apt-get install git-flow
 
-  * sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
-  * sudo dnf install gh
-  * gh auth login
-    * rafaellcustodio@toolbox blog]$ gh auth login
-    * What account do you want to log into? GitHub.com
-    * What is your preferred protocol for Git operations? HTTPS
-    * Authenticate Git with your GitHub credentials? Yes
-    * How would you like to authenticate GitHub CLI? Login with a web browser
-    * First copy your one-time code: 797A-E8AE
-    * Press Enter to open github.com in your browser... 
-    * Failed opening a web browser at https://github.com/login/device
-  * git push origin HEAD:feature/blog-flow
+## Visual Studio
+
+  * sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+  * wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+  * sudo apt-get update
+  * sudo apt-get install code
+
+## Git Usage
+
+* git branch -a
+* git checkout origin/feature/blog-flow
+* git checkout blog-flow
+* sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+* sudo dnf install gh
+* gh auth login
+  * rafaellcustodio@toolbox blog]$ gh auth login
+  * What account do you want to log into? GitHub.com
+  * What is your preferred protocol for Git operations? HTTPS
+  * Authenticate Git with your GitHub credentials? Yes
+  * How would you like to authenticate GitHub CLI? Login with a web browser
+  * First copy your one-time code: 797A-E8AE
+  * Press Enter to open github.com in your browser... 
+  * Failed opening a web browser at https://github.com/login/device
+* git push origin HEAD:feature/blog-flo
 
 ## Blog
 
@@ -58,14 +72,17 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 
 ## Docker 
   
+  * baixe e instale os binarios https://download.docker.com/linux/ubuntu/dists/
+  * sudo usermod -a -G docker $USER - Se ocorrer erro de permisão
+
   * docker rm $(docker ps -aq) - Remove as imagens docker
-  * docker network remove pg - Remove a network postgres atual
+  * docker network remove pg - Remove a network com nome pg
   * sudo chmod 777 $HOME/docker/volumes/postgres - Caso esteja sem permissão 
   * sudo rm -rf $HOME/docker/volumes/postgres - Remove o diretório
+  
   * docker network remove pg
   * docker network ls
-
-  * docker network create --driver bridge pg
+  * docker network create --driver bridge pg-net
   * docker run --name pg --network=pg-net -e "POSTGRES_PASSWORD=postgres" -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data -d postgres
   
 ## Phoenix
