@@ -36,10 +36,7 @@
 
 ## Git Usage
 
-* git branch -a
-* git checkout origin/feature/blog-flow
-* git checkout blog-flow
-* gh auth login
+  * gh auth login
   * rafaellcustodio@toolbox blog]$ gh auth login
   * What account do you want to log into? GitHub.com
   * What is your preferred protocol for Git operations? HTTPS
@@ -48,7 +45,6 @@
   * First copy your one-time code: 797A-E8AE
   * Press Enter to open github.com in your browser... 
   * Failed opening a web browser at https://github.com/login/device
-* git push origin HEAD:feature/blog-flow
 
 ## Blog
 
@@ -102,20 +98,6 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * `npm install` inside the `assets` directory
     
 ## Git
-
-  * echo "# blog" >> README.md
-  * git init
-  * git add README.md
-  * git commit -m "first commit"
-  * git branch -M main
-  * git remote add origin https://github.com/rafaellcustodio/blog.git 
-  * git push -u origin main
-
-  * git flow init
-  * git push --set-upstream origin develop
-  * git flow feature start blog-flow
-  * git push --set-upstream origin feature/blog-flow  
-  * git push
 
   * git flow init (inicia e sugere nomes das 5 branchs- master, develop, feature, release, hotfix, suport)
   * git branch(exibe branchs atuais)
