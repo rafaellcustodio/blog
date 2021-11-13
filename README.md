@@ -17,6 +17,11 @@
   * mix local.hex
   * mix archive.install hex phx_new
 
+## Inotify-tools
+
+  * sudo apt update
+  * sudo apt install inotify-tools
+
 ## Git
 
   * sudo apt-get install git-all    
@@ -111,7 +116,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
     * obs - git checkout main - alterna branch  
     * obs - git merge main (estando na develop copia main para develop)             
 
-## Arquivos de configuração
+## Credo, Coveralls e sobelow
 
   * /config/dev.exs -  {:credo, "~> 1.4", only: [:dev, :test], runtime: false}
   * mix deps.get
@@ -121,7 +126,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * /config/dev.exs - {:sobelow, "~> 0.8", only: :dev}
   * /config/dev.exs - {:excoveralls, "~> 0.10", only: :test},
 
-  coveralls.json
+  * coveralls.json (cobertura)
 {
     "skip_files": [
       "lib/blog/application.ex",
@@ -182,3 +187,82 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
     * coveralls-ignore-start
     * coveralls-ignore-stop
 
+  * mix sobelow --config (segurança)
+
+## MIT license
+
+  * https://choosealicense.com/licenses/mit/
+
+MIT License
+
+Copyright (c) [year] [fullname]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## Changelog
+
+  * https://keepachangelog.com/en/1.0.0/
+
+  Changelog for v1.6
+See the upgrade guide to upgrade from Phoenix 1.5.x.
+
+Phoenix v1.6 requires Elixir v1.9+.
+
+1.6.2 (2021-10-08)
+Bug Fixes
+[phx.new] Fix external flag to esbuild using incorrect syntax
+1.6.1 (2021-10-08)
+Enhancements
+[phx.new] Add external flag to esbuild for fonts and image path loading
+[phx.gen.auth] No longer set argon2 as the default hash algorithm for phx.gen.auth in favor of bcrypt for performance reasons on smaller hardware
+Bug Fixes
+Fix race conditions logging debug duplicate channel joins when no duplicate existed
+JavaScript Client Bug Fixes
+Export commonjs modules for backwards compatibility
+
+## ci.yml
+
+## Gigalixir
+
+  * sudo apt-get update
+  * sudo apt-get install -y python3 python3-pip git-core curl 
+  * pip3 install gigalixir --user 
+  * echo 'export PATH=~/.local/bin:$PATH' >> ~/.bash_profile   
+  * source ~/.bash_profile        
+  * gigalixir login
+  * crie o app pelo site
+  * gigalixir apps - verificar a aplicação
+        rafaellcustodio@BIGUBUNTU:~/apps/blog$ gigalixir apps
+      [
+        {
+          "cloud": "gcp",
+          "region": "v2018-us-central1",
+          "replicas": 0,
+          "size": 0.3,
+          "stack": "gigalixir-20",
+          "unique_name": "blog-rafaellcustodio",
+          "version": 2
+        }
+      ]
+  * gigalixir pg:create --free -a blog-rafaellcustodio
+  * mix phx.gen.secret
+  * criar arquivo .env.sample
+    * export SECRET_KEY_BASE=gwmjAnCBQ4VxUHxTQqTJ5BTKVp1894cl/6QooXke58QDpu0hrq7OlxN6GzrCBW3g
+    * export DATABASE_URL=postgresql://6f18b651-6529-4803-aee0-0d02d5ca49c2-user:pw-6580bd08-f8da-4436-a786-6452ce364303@postgres-free-tier-v2020.gigalixir.com:5432/6f18b651-6529-4803-aee0-0d02d5ca49c2
+  * source .env.sample
