@@ -111,7 +111,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
     * obs - git checkout main - alterna branch  
     * obs - git merge main (estando na develop copia main para develop)             
 
-## Arquivos de configuração
+## Credo e Coveralls
 
   * /config/dev.exs -  {:credo, "~> 1.4", only: [:dev, :test], runtime: false}
   * mix deps.get
