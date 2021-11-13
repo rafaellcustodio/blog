@@ -240,8 +240,29 @@ Export commonjs modules for backwards compatibility
 
 ## Gigalixir
 
-  * instalar para poder usar o shell
-  * logar no gigalixir pelo shell
+  * sudo apt-get update
+  * sudo apt-get install -y python3 python3-pip git-core curl 
+  * pip3 install gigalixir --user 
+  * echo 'export PATH=~/.local/bin:$PATH' >> ~/.bash_profile   
+  * source ~/.bash_profile        
+  * gigalixir login
+  * crie o app pelo site
+  * gigalixir apps - verificar a aplicação
+        rafaellcustodio@BIGUBUNTU:~/apps/blog$ gigalixir apps
+      [
+        {
+          "cloud": "gcp",
+          "region": "v2018-us-central1",
+          "replicas": 0,
+          "size": 0.3,
+          "stack": "gigalixir-20",
+          "unique_name": "blog-rafaellcustodio",
+          "version": 2
+        }
+      ]
+  * gigalixir pg:create --free -a blog-rafaellcustodio
   * mix phx.gen.secret
-  * criar arquivo .env
-  * gigalixir pg:create --free nome_da_aplicacao_no_gigalixir
+  * criar arquivo .env.sample
+    * export SECRET_KEY_BASE=gwmjAnCBQ4VxUHxTQqTJ5BTKVp1894cl/6QooXke58QDpu0hrq7OlxN6GzrCBW3g
+    * export DATABASE_URL=postgresql://6f18b651-6529-4803-aee0-0d02d5ca49c2-user:pw-6580bd08-f8da-4436-a786-6452ce364303@postgres-free-tier-v2020.gigalixir.com:5432/6f18b651-6529-4803-aee0-0d02d5ca49c2
+  * source .env.sample
