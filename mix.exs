@@ -1,11 +1,28 @@
 defmodule Blog.MixProject do
   use Mix.Project
 
+  @github_url "link do repositório"
+
   def project do
     [
       app: :blog,
       version: "0.1.0",
       elixir: "~> 1.7",
+      description: "Projeto para aprendizado do Phoenix",
+      source_url: @github_url,
+      homepage_url: @github_url,
+      files: ~w[mix.exs, lib, LICENSE.md, CHANGELOG.md,]
+      package: [
+        maintainers: [Rafael Custodio],
+        license: ["MIT"],
+        links: %{
+          "Github" => @github
+        }
+      ],
+      docs: [
+        main: "readme",
+        extras: ["README.md, CHANGELOG.md"]
+      ],
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
