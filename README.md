@@ -125,9 +125,9 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * git flow feature finish sum(quando terminar de codar na sum)
   * git flow realease start 0.1.0
   * git flow realease finish 0.1.0
-    ** obs - hotfix e release atualizam master e develop. 
-    ** obs - git checkout main - alterna branch  
-    ** obs - git merge main (estando na develop copia main para develop)             
+    * obs - hotfix e release atualizam master e develop. 
+    * obs - git checkout main - alterna branch  
+    * obs - git merge main (estando na develop copia main para develop)             
 
 ## Arquivos de configuração
 
