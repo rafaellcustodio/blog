@@ -121,7 +121,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * /config/dev.exs - {:sobelow, "~> 0.8", only: :dev}
   * /config/dev.exs - {:excoveralls, "~> 0.10", only: :test},
 
-  coveralls.json
+  * coveralls.json
 {
     "skip_files": [
       "lib/blog/application.ex",
