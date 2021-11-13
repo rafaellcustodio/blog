@@ -186,7 +186,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 
 ## MIT license
 
-https://choosealicense.com/licenses/mit/
+  * https://choosealicense.com/licenses/mit/
 
 MIT License
 
@@ -209,4 +209,25 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Changelog
+
+  * https://keepachangelog.com/en/1.0.0/
+
+  Changelog for v1.6
+See the upgrade guide to upgrade from Phoenix 1.5.x.
+
+Phoenix v1.6 requires Elixir v1.9+.
+
+1.6.2 (2021-10-08)
+Bug Fixes
+[phx.new] Fix external flag to esbuild using incorrect syntax
+1.6.1 (2021-10-08)
+Enhancements
+[phx.new] Add external flag to esbuild for fonts and image path loading
+[phx.gen.auth] No longer set argon2 as the default hash algorithm for phx.gen.auth in favor of bcrypt for performance reasons on smaller hardware
+Bug Fixes
+Fix race conditions logging debug duplicate channel joins when no duplicate existed
+JavaScript Client Bug Fixes
+Export commonjs modules for backwards compatibility
 
