@@ -238,3 +238,10 @@ Export commonjs modules for backwards compatibility
 
 ## ci.yml
 
+## Gigalixir
+
+  * instalar para poder usar o shell
+  * logar no gigalixir pelo shell
+  * mix phx.gen.secret
+  * criar arquivo .env
+  * gigalixir pg:create --free nome_da_aplicacao_no_gigalixir
