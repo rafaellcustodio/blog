@@ -11,9 +11,9 @@ defmodule Blog.MixProject do
       description: "Projeto para aprendizado do Phoenix",
       source_url: @github_url,
       homepage_url: @github_url,
-      files: ~w[mix.exs, lib, LICENSE.md, CHANGELOG.md,]
+      files: ~w[mix.exs, lib, LICENSE.md, CHANGELOG.md,],
       package: [
-        maintainers: [Rafael Custodio],
+        maintainers: ["Rafael Custodio"],
         license: ["MIT"],
         links: %{
           "Github" => @github

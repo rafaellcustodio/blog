@@ -17,6 +17,11 @@
   * mix local.hex
   * mix archive.install hex phx_new
 
+## Inotify-tools
+
+  * sudo apt update
+  * sudo apt install inotify-tools
+
 ## Git
 
   * sudo apt-get install git-all    
@@ -230,4 +235,6 @@ Bug Fixes
 Fix race conditions logging debug duplicate channel joins when no duplicate existed
 JavaScript Client Bug Fixes
 Export commonjs modules for backwards compatibility
+
+## ci.yml
 
