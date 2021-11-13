@@ -289,3 +289,8 @@ Export commonjs modules for backwards compatibility
   * echo 'node_version=12.16.3' > phoenix_static_buildpack.config
   * gigalixir git:remote blog-rafaellcustodio
   * git add config mix.exs .env.sample elixir_builpack.config phoenix_staticbuildpack.config
+  * git push gigalixir
+
+  Agora teste CD
+
+  * crie um release - git flow realease start gigalixir
