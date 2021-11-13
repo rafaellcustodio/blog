@@ -111,7 +111,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
     * obs - git checkout main - alterna branch  
     * obs - git merge main (estando na develop copia main para develop)             
 
-## Credo e Coveralls
+## Credo, Coveralls e sobelow
 
   * /config/dev.exs -  {:credo, "~> 1.4", only: [:dev, :test], runtime: false}
   * mix deps.get
@@ -121,7 +121,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * /config/dev.exs - {:sobelow, "~> 0.8", only: :dev}
   * /config/dev.exs - {:excoveralls, "~> 0.10", only: :test},
 
-  * coveralls.json
+  * coveralls.json (cobertura)
 {
     "skip_files": [
       "lib/blog/application.ex",
@@ -181,4 +181,6 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Cole no intervalo que deseja ignorar
     * coveralls-ignore-start
     * coveralls-ignore-stop
+
+  * mix sobelow --config (segurança)
 
