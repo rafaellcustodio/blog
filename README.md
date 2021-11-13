@@ -237,6 +237,98 @@ JavaScript Client Bug Fixes
 Export commonjs modules for backwards compatibility
 
 ## ci.yml
+name: GithubActions Pipeline CI
+
+on: pull_request
+
+jobs: 
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: erlef/setup-elixir@885971a72ed1f9240973bd92ab57af8c1aa68f24
+        with:
+          otp-version: '23.0'
+          elixir-version: '1.11.0'
+      - name: Restore dependencies cache
+        uses: actions/cache@v2
+        with:
+          path: deps
+          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          restore-keys: ${{ runner.os }}-mix-
+      - name: deps
+        run: mix deps.get
+      - name: LINT CODE
+        run: mix credo --strict
+  check_format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: erlef/setup-elixir@885971a72ed1f9240973bd92ab57af8c1aa68f24
+        with:
+          otp-version: '23.0'
+          elixir-version: '1.11.0'
+      - name: Restore dependencies cache
+        uses: actions/cache@v2
+        with:
+          path: deps
+          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          restore-keys: ${{ runner.os }}-mix-
+      - name: deps
+        run: mix deps.get
+      - name: FORMAT
+        run: mix format --check-formatted
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: erlef/setup-elixir@885971a72ed1f9240973bd92ab57af8c1aa68f24
+        with:
+          otp-version: '23.0'
+          elixir-version: '1.11.0'
+      - name: Restore dependencies cache
+        uses: actions/cache@v2
+        with:
+          path: deps
+          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          restore-keys: ${{ runner.os }}-mix-
+      - name: deps
+        run: mix deps.get
+      - name: Sobelow
+        run: mix sobelow --config
+
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: erlef/setup-elixir@885971a72ed1f9240973bd92ab57af8c1aa68f24
+        with:
+          otp-version: '23.0'
+          elixir-version: '1.11.0'
+      - name: Restore dependencies cache
+        uses: actions/cache@v2
+        with:
+          path: deps
+          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          restore-keys: ${{ runner.os }}-mix-
+      - name: deps
+        run: mix deps.get
+      - name: coveralls
+        run: mix coveralls.json
+      - uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+    services:
+      pg:
+        image: postgres:12
+        ports: ['5432:5432']
+        env:
+          POSTGRES_PASSWORD: postgres
+          options: >-
+            --health-cmd pg_isready
+            --health-interval 10s
+            --health-timeout 5s
+            --health-retries 5s
 
 ## Gigalixir
 
@@ -289,3 +381,46 @@ Export commonjs modules for backwards compatibility
   * echo 'node_version=12.16.3' > phoenix_static_buildpack.config
   * gigalixir git:remote blog-rafaellcustodio
   * git add config mix.exs .env.sample elixir_builpack.config phoenix_staticbuildpack.config
+  * git push gigalixir
+
+  Agora teste CD
+
+  * crie um release - git flow realease start gigalixir
+  * git add .
+  * git commit -m "gigalixir cd"
+  * git push --set-upstream origin release/gigalixir
+  * crie o arquivo cd.yml dentro de .github/workflows
+  name: Gigalixir CD
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8.1
+      - uses: mhanberg/gigalixir-action@v0.4.3
+        with:
+          GIGALIXIR_USERNAME: ${{ secrets.GIGALIXIR_USERNAME}}
+          GIGALIXIR_PASSWORD: ${{ secrets.GIGALIXIR_PASSWORD}}
+          GIGALIXIR_APP: ${{ secrets.GIGALIXIR_APP}}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY}}
+          MIGRATIONS: false
+
+    * vá para o github, settings, secrets, new repository secret, nome: "GIGALIXIR_USERNAME" valor: "rafaellcustodio@gmail.com", nome: "GIGALIXIR_PASSWORD" valor:xxxxxxxx, nome: "GIGALIXIR_APP" valor: blog-rafaellcustodio
+    * ssh-keygen -t rsa -C "rafaelcustodio@gmail.com"
+    * cat ~/.ssh/id_rsa.pub
+    * cat ~/.ssh/id_rsa (chave privada)
+    * nome: "SSH_PRIVATE_KEY" valor: chave privada            
+    * gigalixir account:ssh_keys:add "$(cat ~/.ssh/id_rsa.pub)"
+    * gigalixir ps:observer
