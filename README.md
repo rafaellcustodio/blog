@@ -266,3 +266,26 @@ Export commonjs modules for backwards compatibility
     * export SECRET_KEY_BASE=gwmjAnCBQ4VxUHxTQqTJ5BTKVp1894cl/6QooXke58QDpu0hrq7OlxN6GzrCBW3g
     * export DATABASE_URL=postgresql://6f18b651-6529-4803-aee0-0d02d5ca49c2-user:pw-6580bd08-f8da-4436-a786-6452ce364303@postgres-free-tier-v2020.gigalixir.com:5432/6f18b651-6529-4803-aee0-0d02d5ca49c2
   * source .env.sample
+  * faça a branch main ficar atualizada
+  * export SECRET_KEY_BASE=gwmjAnCBQ4VxUHxTQqTJ5BTKVp1894cl/6QooXke58QDpu0hrq7OlxN6GzrCBW3g
+  * export DATABASE_URL=postgresql://6f18b651-6529-4803-aee0-0d02d5ca49c2-user:pw-6580bd08-f8da-4436-a786-6452ce364303@postgres-free-tier-v2020.gigalixir.com:5432/6f18b651-6529-4803-aee0-0d02d5ca49c2
+  * mix deps.get --only prod
+  * MIX_ENV=prod mix compile
+  * npm install --prefix ./assets
+  * rename prod.secret.exs para releases.exs
+  * comente a ultima linha de prod.exs
+  * no releases.exs altere `use Mix.Config` para `import Config`
+  * descomente `#     config :blog, BlogWeb.Endpoint, server: true`
+  * altere o tamanho do pool `pool_size: String.to_integer(System.get_env("POOL_SIZE") || "2")`
+  * npm run deploy --prefix ./assets
+  * mix phx.digest
+  * MIX_ENV=prod mix release
+  * _build/prod/rel/blog/bin/blog start
+
+  Agora que o release funcionou vamos configurar o Gigalixir
+
+  * echo 'elixir_version=1.10.3' > elixir_buildpack.config
+  * echo 'erlang_version=22.3' >> elixir_buildpack.config
+  * echo 'node_version=12.16.3' > phoenix_static_buildpack.config
+  * gigalixir git:remote blog-rafaellcustodio
+  * git add config mix.exs .env.sample elixir_builpack.config phoenix_staticbuildpack.config
