@@ -127,7 +127,8 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * git flow realease finish 0.1.0
 
 *obs - hotfix e release atualizam master e develop. 
-*obs - git checkout main - alterna branch               
+*obs - git checkout main - alterna branch  
+*obs - git merge main (estando na develop copia main para develop)             
 
 ## Arquivos de configuração
 
