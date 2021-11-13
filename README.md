@@ -115,7 +115,19 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * git push --set-upstream origin develop
   * git flow feature start blog-flow
   * git push --set-upstream origin feature/blog-flow  
-  * git push               
+  * git push
+
+  * git flow init (inicia e sugere nomes das 5 branchs- master, develop, feature, release, hotfix, suport)
+  * git branch(exibe branchs atuais)
+  * git flow feature start sum(cria a lane sum na branch feature)
+  * git add .
+  * git commit -m "funcionalidade soma criada"
+  * git flow feature finish sum(quando terminar de codar na sum)
+  * git flow realease start 0.1.0
+  * git flow realease finish 0.1.0
+
+*obs - hotfix e release atualizam master e develop. 
+*obs - git checkout main - alterna branch               
 
 ## Arquivos de configuração
 
