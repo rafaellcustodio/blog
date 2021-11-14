@@ -424,3 +424,12 @@ jobs:
     * nome: "SSH_PRIVATE_KEY" valor: chave privada            
     * gigalixir account:ssh_keys:add "$(cat ~/.ssh/id_rsa.pub)"
     * gigalixir ps:observer
+    * faça um push do main
+    * git push gigalixir
+
+## Materializer
+
+  * cd assets
+  * npm install materialize-css@next
+  * npm install --prefix ./assets
+  
