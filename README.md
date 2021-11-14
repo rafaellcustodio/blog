@@ -426,3 +426,10 @@ jobs:
     * gigalixir ps:observer
     * faça um push do main
     * git push gigalixir
+
+## Materializer
+
+  * cd assets
+  * npm install materialize-css@next
+  * npm install --prefix ./assets
+  
