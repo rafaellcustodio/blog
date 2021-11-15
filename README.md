@@ -427,9 +427,14 @@ jobs:
     * faça um push do main
     * git push gigalixir
 
-## Materializer
+## Materializer https://materializecss.com/
 
   * cd assets
   * npm install materialize-css@next
   * npm install --prefix ./assets
+  * blog>assets>css># app.css @import "../node_modules/materialize-css/dist/css/materialize.min.css";
+  * blog>assets>js> import "../node_modules/materialize-css/dist/js/materialize"
   
+## Postgres
+
+  * mix ecto.gen.migration posts - criou priv/repo/migrations/20211115041537_posts.exs
