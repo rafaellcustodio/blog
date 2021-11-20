@@ -1,1 +1,23 @@
-deu certo
+
+
+
+<div class="col s12 m7">
+    <h2 class="header">Horizontal Card</h2>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="https://lorempixel.com/100/190/nature/6">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><%= @post.description %></p>
+        </div>
+        <div class="card-action">
+        <%= link to: Routes.page_path(@conn, :index), class: "btn floating left waves-effect" do %>
+            <i class="material-icons">chevron_left</i>
+        <% end %>
+          <a href="#"><%= @post.title %></a>
+          <a href="#"><%= @post.updated_at %></a>
+        </div>
+      </div>
+    </div>
+  </div>

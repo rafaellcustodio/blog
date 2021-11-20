@@ -19,6 +19,7 @@ defmodule BlogWeb.Router do
     get "/", PageController, :index
     get "/posts", PostController, :index
     get "/posts/:id", PostController, :show
+    get "/posts/new", PostController, :new
   end
 
   # Other scopes may use custom stacks.

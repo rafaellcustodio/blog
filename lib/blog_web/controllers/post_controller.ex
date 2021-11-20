@@ -1,18 +1,18 @@
 defmodule BlogWeb.PostController do
   use BlogWeb, :controller
-
+  alias Blog.Posts.Post
 
 
   def index(conn, _params) do
-    posts = [
-      %{id: 1, titulo: "Phoenix"},
-      %{id: 2, titulo: "Liveview"},
-      %{id: 3, titulo: "Postgres"}
-  ]
+   posts = Blog.Repo.all(Post)
     render(conn, "post.html",posts: posts)
   end
-  def show(conn, _params) do
-
-    render(conn, "show.html")
+  def show(conn, %{"id" => id }) do
+    post = Blog.Repo.get!(Post, id)
+    render(conn, "show.html", post: post)
+  end
+  def new(conn, %{"id" => id }) do
+    post = Blog.Repo.get!(Post, id)
+    render(conn, "show.html", post: post)
   end
 end

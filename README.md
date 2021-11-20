@@ -437,4 +437,11 @@ jobs:
   
 ## Postgres
 
-  * mix ecto.gen.migration posts - criou priv/repo/migrations/20211115041537_posts.exs
+  * mix ecto.gen.migration posts - edite priv/repo/migrations/20211115041537_posts.exs
+  * mix ecto.migrate
+  * Para trabalhar com contextos crie a pasta "posts" dentro de /blog/lib e o arquivo "post.ex"
+  * mix ecto.reset
+
+## Contextos
+
+  * mix phx.gen.context Posts Comment comments comment post_id:references:posts
